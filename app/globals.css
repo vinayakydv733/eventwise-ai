@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* ── Color tokens ─────────────────────────────────────── */
+  --background: 40 20% 98%;         /* Warm off-white #faf9f6 */
+  --foreground: 240 10% 10%;        /* Deep charcoal #18181b  */
+  --card: 0 0% 100%;                /* Crisp white card       */
+  --card-foreground: 240 10% 10%;
+  --border: 240 6% 90%;             /* Soft neutral #e4e4e7   */
+  --input: 240 6% 90%;
+  --primary: 243 75% 59%;           /* Indigo #6366f1         */
+  --primary-foreground: 0 0% 100%;
+  --primary-hover: 243 75% 50%;     /* Darker indigo on hover */
+  --secondary: 250 40% 96%;         /* Lavender tint #f5f3ff  */
+  --secondary-foreground: 243 75% 45%;
+  --muted: 240 5% 96%;
+  --muted-foreground: 240 4% 46%;
+  --accent: 250 50% 95%;
+  --accent-foreground: 243 75% 40%;
+  --ring: 243 75% 59%;
+  --radius: 0.625rem;
+
+  /* ── Typography scale tokens ─────────────────────────── */
+  --text-2xs: 0.6875rem;   /* 11px – minimum absolute */
+  --text-xs:  0.75rem;     /* 12px */
+  --text-sm:  0.875rem;    /* 14px */
+  --text-base: 1rem;       /* 16px – body */
+  --text-lead: 1.125rem;   /* 18px – lead paragraph */
+  --text-lg:  1.25rem;     /* 20px */
+  --text-xl:  1.5rem;      /* 24px – H3 desktop */
+  --text-2xl: 1.75rem;     /* 28px – H2 mobile */
+  --text-3xl: 2rem;        /* 32px – H2 desktop */
+  --text-4xl: 2.25rem;     /* 36px – H1 mobile */
+  --text-5xl: 3rem;        /* 48px */
+  --text-hero: 3.75rem;    /* 60px – Hero heading desktop */
+
+  /* ── Spacing scale (4px increments) ─────────────────── */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+}
+
+body {
+  color: hsl(var(--foreground));
+  background-color: hsl(var(--background));
+  font-size: var(--text-base);       /* 16px body default */
+  line-height: 1.6;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa;
+}
+
+/* Subtle frosted glass */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(228, 228, 231, 0.8);
+}
+
+/* Soft gradients for heroes and AI surfaces */
+.ai-gradient-bg {
+  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 50%, #faf5ff 100%);
+}
+
+.ai-gradient-text {
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Pulsing AI badge */
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(0.98); }
+}
+
+.pulse-ai {
+  animation: pulse-subtle 3s ease-in-out infinite;
+}
+
+/* ── Accessibility: focus rings ──────────────────────── */
+:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+/* Remove focus ring for mouse users, keep for keyboard */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ── Minimum touch targets (WCAG 2.2 AA) ────────────── */
+button,
+[role="button"],
+a,
+input[type="checkbox"],
+input[type="radio"],
+select {
+  min-height: 44px;
+}
+
+/* Inline icon-only buttons can be smaller */
+button.icon-btn {
+  min-height: 32px;
+}
+
+/* ── Reduced motion support ─────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Consistent link underline on hover for body copy ── */
+.prose a:hover,
+.content-link:hover {
+  text-decoration: underline;
+}
+
+/* ── Heading hierarchy base styles ─────────────────────
+   These support the token system; Tailwind classes override
+   where needed for context-specific sizing.
+   ──────────────────────────────────────────────────── */
+h1 { font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; }
+h2 { font-weight: 700; letter-spacing: -0.015em; line-height: 1.2; }
+h3 { font-weight: 700; line-height: 1.3; }
+h4 { font-weight: 600; line-height: 1.4; }
+

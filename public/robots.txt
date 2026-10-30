@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Allow: /sign-in
+Allow: /sign-up
+Allow: /sitemap.xml
+
+# Block private authenticated routes
+Disallow: /app/
+Disallow: /api/
+
+Sitemap: https://eventwiseai.com/sitemap.xml
+

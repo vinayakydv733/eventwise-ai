@@ -1,0 +1,9 @@
+{
+  "/api/events/[eventId]/route": "app/api/events/[eventId]/route.js",
+  "/api/events/[eventId]/guests/route": "app/api/events/[eventId]/guests/route.js",
+  "/app/events/[eventId]/page": "app/app/events/[eventId]/page.js",
+  "/app/events/[eventId]/budget/page": "app/app/events/[eventId]/budget/page.js",
+  "/app/events/[eventId]/tasks/page": "app/app/events/[eventId]/tasks/page.js",
+  "/app/events/[eventId]/guests/page": "app/app/events/[eventId]/guests/page.js",
+  "/app/events/[eventId]/inspiration/page": "app/app/events/[eventId]/inspiration/page.js"
+}
